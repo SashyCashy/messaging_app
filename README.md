@@ -65,26 +65,24 @@ $ expo start
 
 ## App Structure
 
-- [App.js](App.js)
-- [Constants.js](Constants.js)
-- [README.md](README.md)
-- [app.json](app.json)
-- [babel.config.js](babel.config.js)
-- **components**
-  - **Grid**
-    - [ImageGrid.js](components/Grid/ImageGrid.js)
-    - [index.js](components/Grid/index.js)
-  - **Messages**
-    - [MessageList.js](components/Messages/MessageList.js)
-  - **Status**
-    - [index.js](components/Status/index.js)
-  - **Toolbar**
-    - [ToolbarButton.js](components/Toolbar/ToolbarButton.js)
-    - [index.js](components/Toolbar/index.js)
-- [package.json](package.json)
-- **utils**
-  - [MessageUtils.js](utils/MessageUtils.js)
+📂 **messaging_app**
 
-```
-
-```
+- 📄 [App.js](App.js)
+- 📄 [Constants.js](Constants.js)
+- 📄 [README.md](README.md)
+- 📄 [app.json](app.json)
+- 📄 [babel.config.js](babel.config.js)
+- 📂 **components**
+  - 📂 **Grid**
+    - 📄 [ImageGrid.js](components/Grid/ImageGrid.js)
+    - 📄 [index.js](components/Grid/index.js)
+  - 📂 **Messages**
+    - 📄 [MessageList.js](components/Messages/MessageList.js)
+  - 📂 **Status**
+    - 📄 [index.js](components/Status/index.js)
+  - 📂 **Toolbar**
+    - 📄 [ToolbarButton.js](components/Toolbar/ToolbarButton.js)
+    - 📄 [index.js](components/Toolbar/index.js)
+- 📄 [package.json](package.json)
+- 📂 **utils**
+  - 📄 [MessageUtils.js](utils/MessageUtils.js)
