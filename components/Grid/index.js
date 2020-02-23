@@ -22,17 +22,18 @@ export default function Grid({
   /**
    ------- SAMPLE IMAGE OBJECT INFORMATION -------
    {
-    "index": 1,
-    "item": Object {
-      "uri": "https://picsum.photos/600/600?images=30",
-    },
-    "separators": Object {
-      "highlight": [Function highlight],
-      "unhighlight": [Function unhighlight],
-      "updateProps": [Function updateProps],
-   },
-}
-  */
+      "index": 1,
+      "item": Object {
+        "uri": "https://picsum.photos/600/600?images=30",
+      },
+      "separators": Object {
+        "highlight": [Function highlight],
+        "unhighlight": [Function unhighlight],
+        "updateProps": [Function updateProps],
+      },
+    }
+*/
+
   const renderGridItem = info => {
     const { index } = info;
     const { width } = Dimensions.get('window');

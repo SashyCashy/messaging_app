@@ -4,7 +4,6 @@
  * Description: This component displays image grid
  */
 
-import { Constants } from '../../Constants';
 import React, { useState, useEffect } from 'react';
 import * as Permissions from 'expo-permissions';
 import { CameraRoll, Image, StyleSheet, TouchableOpacity } from 'react-native';
@@ -68,7 +67,6 @@ export default function ImageGrid({ onPressImage }) {
     );
   };
 
-  const keyExtractor = ({ uri }) => uri;
   return (
     <Grid
       data={images}
