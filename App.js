@@ -16,12 +16,17 @@ import Status from './components/Status';
 import MessageList from './components/Messages/MessageList';
 import Toolbar from './components/Toolbar';
 import ImageGrid from './components/Grid/ImageGrid';
+import MeasureLayout from './components/MeasureLayout';
+import MessageContainer, {
+  INPUT_METHOD
+} from './components/Messages/MessageContainer';
 
 import {
   createImageMessage,
   createTextMessage,
   createLocationMessage
 } from './utils/MessageUtils';
+import KeyboardState from './components/KeyboardState';
 
 export default function App() {
   const [messages, setMessages] = useState([
@@ -32,6 +37,7 @@ export default function App() {
       longitude: -122.4324
     })
   ]);
+  const [inputMethod, setInputMethod] = useState(INPUT_METHOD.NONE);
   const [fullScreenImageId, setFullScreenImageId] = useState(null);
 
   const [inputFocused, setInputFocused] = useState(false);
@@ -54,6 +60,15 @@ export default function App() {
         ...messages
       ]);
     });
+  };
+
+  handleChangeInputMethod = inputMethod => {
+    setInputMethod(inputMethod);
+  };
+
+  handlePressToolbarCamera = () => {
+    setInputFocused(false);
+    setInputMethod(INPUT_METHOD.CUSTOM);
   };
 
   /**
@@ -162,10 +177,25 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Status />
-      {renderMessageList()}
-      {renderInputMethodEditor()}
+
+      <MeasureLayout>
+        {layout => (
+          <KeyboardState layout={layout}>
+            {keyboadInfo => (
+              <MessageContainer
+                {...keyboadInfo}
+                inputMethod={inputMethod}
+                onChangeInputMethod={event => handleChangeInputMethod(event)}
+                renderInputMethodEditor={() => renderInputMethodEditor()}
+              >
+                {renderMessageList()}
+              </MessageContainer>
+            )}
+          </KeyboardState>
+        )}
+      </MeasureLayout>
+      {/*renderFullScreenImage()*/}
       {renderToolbar()}
-      {renderFullScreenImage()}
     </View>
   );
 }
@@ -176,19 +206,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
   content: {
-    flex: 1,
+    flex: 2,
     backgroundColor: '#fff'
   },
   inputMethodEditor: {
-    flex: 1,
+    flex: 2,
     backgroundColor: '#fff'
   },
   toolbar: {
-    flex: 1,
+    flex: 0.35,
     borderTopWidth: 1,
     borderTopColor: 'rgba(0,0,0,0.04)',
-    backgroundColor: '#fff',
-    height: 300
+    backgroundColor: '#fff'
   },
   fullScreenOverlay: {
     ...StyleSheet.absoluteFillObject,

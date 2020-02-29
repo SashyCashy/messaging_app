@@ -50,6 +50,7 @@ export default function Toolbar({
           ref={input => {
             setInputRefVal(input);
           }}
+          keyboardAvoidingView
           onFocus={handleFocus}
           onBlur={handleBlur}
         />
